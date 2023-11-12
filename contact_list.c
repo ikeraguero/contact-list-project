@@ -17,6 +17,9 @@
 #include <stdio.h>
 
 int main() {
+    int pick, id;
+    int count = 0;
+
         printf("\nAGENDA DE CONTATOS TELEFôNICOS\n");
         printf("[1] - Adicionar um contato\n");
         printf("[2] - Deletar um contato\n");

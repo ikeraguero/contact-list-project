@@ -27,4 +27,6 @@ int main() {
         printf("[4] - Listar todos os contatos\n");
         printf("[5] - Localizar um contato\n");
         printf("[6] - Sair\n");
+        printf("\nDigite aqui sua escolha: ");
+        scanf("%d", &pick);
 }

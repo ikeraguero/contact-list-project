@@ -16,6 +16,14 @@
 
 #include <stdio.h>
 
+struct Contact {
+    int id;
+    char name[20];
+    char cellphone[20];
+    char type[20];
+};
+
+
 int main() {
     int pick, id;
     int count = 0;

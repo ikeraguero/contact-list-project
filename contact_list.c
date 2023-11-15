@@ -24,6 +24,10 @@ struct Contact {
 };
 
 void addContact();
+void deleteContact();
+void editContact();
+void listContacts();
+void findContact();
 
 
 int main() {

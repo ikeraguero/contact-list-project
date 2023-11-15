@@ -23,6 +23,8 @@ struct Contact {
     char type[20];
 };
 
+void addContact();
+
 
 int main() {
     int pick, id;

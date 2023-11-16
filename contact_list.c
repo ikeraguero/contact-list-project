@@ -31,6 +31,9 @@ void findContact();
 
 
 int main() {
+
+    struct Contact contacts[100]; // maximo de 100 contatos
+    
     int pick, id;
     int count = 0;
 

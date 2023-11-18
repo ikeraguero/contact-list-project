@@ -37,6 +37,8 @@ int main() {
     int pick, id;
     int count = 0;
 
+    do {
+
         printf("\nAGENDA DE CONTATOS TELEFôNICOS\n");
         printf("[1] - Adicionar um contato\n");
         printf("[2] - Deletar um contato\n");
@@ -46,4 +48,36 @@ int main() {
         printf("[6] - Sair\n");
         printf("\nDigite aqui sua escolha: ");
         scanf("%d", &pick);
+    switch (pick) {
+        case 1:
+            addContact();
+            break;
+        case 2:
+            printf("Digite o ID do contato que deseja deletar: ");
+            scanf("%d", &id);
+            deleteContact();
+            break;
+        case 3:
+            printf("Digite o ID do contato que deseja editar: ");
+            scanf("%d", &id);
+            editContact();
+            break;
+        case 4:
+            listContacts();
+            break;
+        case 5:
+            printf("Digite o ID do contato que deseja localizar: ");
+            scanf("%d", &id);
+            findContact();
+            break;
+        case 6:
+            printf("Saindo da agenda de contatos..");
+            break;
+        default:
+            printf("Opção invalida. Por favor selecione uma opção válida.");
+
+    }
+ } while (pick != 6);
+
+ return 0;
 }

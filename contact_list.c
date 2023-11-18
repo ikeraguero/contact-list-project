@@ -15,6 +15,7 @@
 
 
 #include <stdio.h>
+#include <string.h>
 
 struct Contact {
     int id;
@@ -50,7 +51,7 @@ int main() {
         scanf("%d", &pick);
     switch (pick) {
         case 1:
-            addContact();
+            addContact(contacts, &count);
             break;
         case 2:
             printf("Digite o ID do contato que deseja deletar: ");
@@ -80,4 +81,20 @@ int main() {
  } while (pick != 6);
 
  return 0;
+}
+
+void addContact(struct Contact *contacts, int *count) {
+    printf("Digite o nome do contato: ");
+    scanf("%s", contacts[*count].name);
+    printf("Digite o número de telefone: ");
+    scanf("%s", contacts[*count].cellphone);
+    printf("Digite o tipo de contato (pessoal/trabalho): ");
+    scanf("%s", contacts[*count].type);
+
+    /// ATRIBUINDO ID
+
+    contacts[*count].id = *count + 1;
+
+    (*count)++;
+    printf("O contato foi adicionado com sucesso!");
 }

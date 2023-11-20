@@ -69,7 +69,7 @@ int main() {
         case 5:
             printf("Digite o ID do contato que deseja localizar: ");
             scanf("%d", &id);
-            findContact();
+            findContact(contacts, count, id);
             break;
         case 6:
             printf("Saindo da agenda de contatos..");
@@ -97,4 +97,18 @@ void addContact(struct Contact *contacts, int *count) {
 
     (*count)++;
     printf("O contato foi adicionado com sucesso!");
+};
+
+
+void findContact(struct Contact *contacts, int count, int id) {
+    int i, found = 0;
+
+    for (i=0; i < count; i++) {
+        if (contacts[i].id == id) {
+            printf("ID\tName\tCellphone\tType\n");
+            printf("%d\t%s\t%s\n", contacts[i].id, contacts[i].name, contacts[i].cellphone, contacts[i].type);
+            found = 1;
+            break;
+        }
+    }
 }

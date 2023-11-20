@@ -64,7 +64,7 @@ int main() {
             editContact();
             break;
         case 4:
-            listContacts();
+            listContacts(contacts, count);
             break;
         case 5:
             printf("Digite o ID do contato que deseja localizar: ");
@@ -82,6 +82,7 @@ int main() {
 
  return 0;
 }
+
 
 void addContact(struct Contact *contacts, int *count) {
     printf("Digite o nome do contato: ");
@@ -111,4 +112,15 @@ void findContact(struct Contact *contacts, int count, int id) {
             break;
         }
     }
+}
+
+void listContacts(struct Contact *contacts, int count) {
+   if (count == 0) {
+       printf("No contacts available.\n");
+   } else {
+       printf("ID\tName\tCellphone\tType\n");
+       for (int i = 0; i < count; i++) {
+           printf("%d\t%s\t%s\t%s\n", contacts[i].id, contacts[i].name, contacts[i].cellphone, contacts[i].type);
+       }
+   }
 }

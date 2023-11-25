@@ -16,6 +16,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 struct Contact {
     int id;
@@ -56,12 +57,12 @@ int main() {
         case 2:
             printf("Digite o ID do contato que deseja deletar: ");
             scanf("%d", &id);
-            deleteContact();
+            deleteContact(contacts, &count, id);
             break;
         case 3:
             printf("Digite o ID do contato que deseja editar: ");
             scanf("%d", &id);
-            editContact();
+            editContact(contacts, count, id);
             break;
         case 4:
             listContacts(contacts, count);
@@ -116,11 +117,62 @@ void findContact(struct Contact *contacts, int count, int id) {
 
 void listContacts(struct Contact *contacts, int count) {
    if (count == 0) {
-       printf("No contacts available.\n");
+       printf("Nenhum contato foi encontrado.\n");
    } else {
        printf("ID\tName\tCellphone\tType\n");
        for (int i = 0; i < count; i++) {
            printf("%d\t%s\t%s\t%s\n", contacts[i].id, contacts[i].name, contacts[i].cellphone, contacts[i].type);
        }
    }
+};
+
+void editContact(struct Contact *contacts, int count, int id) {
+   int i, found = 0;
+
+   for (i = 0; i < count; i++) {
+       if (contacts[i].id == id) {
+           printf("Digite o novo nome: ");
+           scanf("%s", contacts[i].name);
+           printf("Digite o novo telefone: ");
+           scanf("%s", contacts[i].cellphone);
+           printf("Digite o novo tipo (pessoal/trabalho): ");
+           scanf("%s", contacts[i].type);
+
+
+           found = 1;
+           printf("O contato foi editado com sucesso!\n");
+           break;
+       }
+   }
+
+
+   if (!found) {
+       printf("Contato não encontrado.\n");
+   }
+};
+
+void deleteContact(struct Contact *contacts, int *count, int id) {
+   int i, found = 0;
+
+
+   for (i = 0; i < *count; i++) {
+       if (contacts[i].id == id) {
+
+           for (int j = i; j < *count - 1; j++) {
+               contacts[j] = contacts[j + 1];
+           }
+           (*count)--;
+           found = 1;
+           printf("Contato deletado!.\n");
+           break;
+       }
+   }
+
+
+   if (!found) {
+       printf("Contato não encontrado.\n");
+   }
 }
+
+
+

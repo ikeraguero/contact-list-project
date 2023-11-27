@@ -107,8 +107,8 @@ void findContact(struct Contact *contacts, int count, int id) {
 
     for (i=0; i < count; i++) {
         if (contacts[i].id == id) {
-            printf("ID\tName\tCellphone\tType\n");
-            printf("%d\t%s\t%s\n", contacts[i].id, contacts[i].name, contacts[i].cellphone, contacts[i].type);
+            printf("ID\tNome\tTelefone\tTipo\n");
+            printf("%d\t%s\t%s\t%s\n", contacts[i].id, contacts[i].name, contacts[i].cellphone, contacts[i].type);
             found = 1;
             break;
         }
@@ -119,7 +119,7 @@ void listContacts(struct Contact *contacts, int count) {
    if (count == 0) {
        printf("Nenhum contato foi encontrado.\n");
    } else {
-       printf("ID\tName\tCellphone\tType\n");
+       printf("ID\tNome\tTelefone\tTipo\n");
        for (int i = 0; i < count; i++) {
            printf("%d\t%s\t%s\t%s\n", contacts[i].id, contacts[i].name, contacts[i].cellphone, contacts[i].type);
        }
